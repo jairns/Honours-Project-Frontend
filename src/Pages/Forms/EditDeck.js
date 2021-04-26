@@ -129,7 +129,7 @@ const EditDeck = (props) => {
                     {deck.file !== 'null' && deck.file && !filePrev && (
                         <FilePreview 
                             label='Thumbnail' 
-                            file={`http://localhost:5000/${deck.file}`} 
+                            file={process.env.REACT_APP_FILE_URL + `${deck.file}`} 
                             type='image' 
                             onClick={deleteFileHandler} />
                     )}
