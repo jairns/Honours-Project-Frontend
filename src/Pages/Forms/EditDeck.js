@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Input from '../../SharedComponents/FormElements/Input';
-import ImagePreview from '../../SharedComponents/FormElements/ImagePreview';
+import FilePreview from '../../SharedComponents/FormElements/FilePreview';
 import Button from '../../SharedComponents/FormElements/Button';
 import Spinner from '../../SharedComponents/Spinner/Spinner';
 import '../../SharedComponents/FormElements/FormElements.css';
@@ -127,7 +127,7 @@ const EditDeck = (props) => {
                     }
                     
                     {deck.file !== 'null' && deck.file && !filePrev && (
-                        <ImagePreview 
+                        <FilePreview 
                             label='Thumbnail' 
                             file={`http://localhost:5000/${deck.file}`} 
                             type='image' 

@@ -54,7 +54,7 @@ const Decks = (props) => {
                                 {deck.file === 'null' || !deck.file ? (
                                     <img src={Placeholder} alt='deck' />
                                     ) : (
-                                        <img src={`http://localhost:5000/${deck.file}`} alt='deck' />
+                                        <img src={process.env.REACT_APP_FILE_URL + `${deck.file}`} alt='deck' />
                                     )
                                 }
                                 <h2>{deck.title}</h2>

@@ -50,7 +50,7 @@ const ViewCards = (props) => {
                             <Card width={props.windowWidth < 1100 ? '100%' : '43%'} height='auto' key={card._id}>      
                                 {card.file && card.file !== 'null' && card.file.includes('image') ? 
                                 (
-                                    <img src={`http://localhost:5000/${card.file}`} alt='Card file' />
+                                    <img src={process.env.REACT_APP_FILE_URL + `${card.file}`} alt='Card file' />
                                 ) : (
                                     <img src={Placeholder} alt='deck' /> 
                                 )}
@@ -73,9 +73,3 @@ const ViewCards = (props) => {
 }
 
 export default windowSize(ViewCards);
-/*
-NPM package:
-https://www.npmjs.com/package/react-window-size
-Default thumbnail src:
-https://www.pexels.com/photo/stacks-of-blank-white-visiting-cards-on-table-4466176/
-*/

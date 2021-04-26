@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import windowSize from 'react-window-size';
 import ReactCardFlip from 'react-card-flip';
-import './Cards.css';
+import './ReviseCards.css';
 import Button from '../../SharedComponents/FormElements/Button';
 import Card from '../../SharedComponents/Card/Card';
 import Spinner from '../../SharedComponents/Spinner/Spinner';
@@ -98,12 +98,12 @@ const Cards = (props) => {
                                 {/*If file is audio  */}
                                 {studyCard.file && studyCard.file !== 'null' && studyCard.file.includes('audio') &&  (
                                     <audio controls className='audio'>
-                                        <source src={`http://localhost:5000/${studyCard.file}`} />
+                                        <source src={process.env.REACT_APP_FILE_URL + `${studyCard.file}`} />
                                     </audio>
                                 )}
                                 {/*If file is an image  */}
                                 {studyCard.file && studyCard.file !== 'null' && studyCard.file.includes('image') &&  (
-                                    <img src={`http://localhost:5000/${studyCard.file}`} alt='bread' className='cardImg' /> 
+                                    <img src={process.env.REACT_APP_FILE_URL + `${studyCard.file}`} alt='bread' className='cardImg' /> 
                                 )}
                             </div>
                             <div className='feedback bottom'>

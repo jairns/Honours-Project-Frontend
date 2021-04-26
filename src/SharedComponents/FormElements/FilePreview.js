@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ImagePreview = (props) => {
+const FilePreview = (props) => {
     return (
         <form className='imagePrevForm'>
             <label htmlFor='imgPreview' className='d-block'>Current {props.label}:</label>
@@ -23,4 +23,4 @@ const ImagePreview = (props) => {
     )
 } 
 
-export default ImagePreview;
+export default FilePreview;

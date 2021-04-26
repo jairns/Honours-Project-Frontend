@@ -3,7 +3,7 @@ import axios from 'axios';
 import Input from '../../SharedComponents/FormElements/Input';
 import Button from '../../SharedComponents/FormElements/Button';
 import Spinner from '../../SharedComponents/Spinner/Spinner';
-import ImagePreview from '../../SharedComponents/FormElements/ImagePreview';
+import FilePreview from '../../SharedComponents/FormElements/FilePreview';
 import '../../SharedComponents/FormElements/FormElements.css';
 import AuthContext from '../../Context/Auth/authContext';
 import CardContext from '../../Context/Cards/cardContext';
@@ -60,7 +60,7 @@ const EditCard = (props) => {
             setLoaded(true);
         }
         getCard();
-        // setCard(selectedCard);
+
      // eslint-disable-next-line
     }, [])
 
@@ -154,9 +154,9 @@ const EditCard = (props) => {
                     {!AnswerTextValid  && <p className='errorMsg red'>An answer in text is required.</p>}
 
                     {card.file && card.file !== '' && card.file !== 'null' && !filePrev && (
-                        <ImagePreview 
+                        <FilePreview 
                             label='File' 
-                            file={`http://localhost:5000/${card.file}`} 
+                            file={process.env.REACT_APP_FILE_URL + `${card.file}`} 
                             type={card.file.includes('audio') ? 'audio' : 'image'}
                             onClick={deleteFileHandler} />
                     )}

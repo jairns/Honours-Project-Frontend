@@ -22,7 +22,7 @@ import Decks from './Pages/Decks/Decks';
 import EditDeck from './Pages/Forms/EditDeck';
 import ViewCards from './Pages/ViewCards/ViewCards';
 import EditCard from './Pages/Forms/EditCard';
-import Cards from './Pages/Cards/Cards';
+import ReviseCards from './Pages/ReviseCards/ReviseCards';
 import ForgotPassword from './Pages/Forms/ForgotPassword';
 import ResetPassword from './Pages/Forms/ResetPassword';
 import Gdpr from './Pages/Gdpr/Gdpr';
@@ -53,7 +53,7 @@ if(localStorage.token) {
                   <ProtectedRoute path="/editdeck/:id" exact component={EditDeck} />
                   <ProtectedRoute path="/viewcards/:id" exact component={ViewCards} />
                   <ProtectedRoute path="/editcard/:id" exact component={EditCard} />
-                  <ProtectedRoute path="/cards/:id" exact component={Cards} />
+                  <ProtectedRoute path="/cards/:id" exact component={ReviseCards} />
                   <Redirect to="/home" />
                 </Switch>
               </main>
