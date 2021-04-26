@@ -1,0 +1,19 @@
+section {
+  height: 100vh;
+  min-width: 100%;
+  background-color: #d7eef7;
+  justify-content: center;
+  align-items: center;
+}
+
+section:nth-of-type(2) {
+  background-color: #fff;
+}
+
+.icons {
+  padding-top: 30vh;
+  width: 100px;
+  height: 100px;
+  display: block;
+  margin: 0 auto;
+}

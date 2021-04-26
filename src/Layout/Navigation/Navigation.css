@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@500&display=swap');
+
+nav {
+  height: 60px;
+  position: fixed;
+  width: 100%;
+  z-index: 5;
+  /* background: #6668f4; */
+  /* background: #2812d1;
+  background: -webkit-linear-gradient(top right, #2812d1, #3596cb);
+  background: -moz-linear-gradient(top right, #2812d1, #3596cb);
+  background: linear-gradient(to bottom left, #2812d1, #3596cb); */
+  background-image: linear-gradient(-90deg, #6668f4, #3596cb);
+  display: flex;
+  color: #fff;
+}
+
+.navItems {
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+  /* background: #2812d1;
+  background: -webkit-linear-gradient(top right, #2812d1, #3596cb);
+  background: -moz-linear-gradient(top right, #2812d1, #3596cb);
+  background: linear-gradient(to bottom left, #2812d1, #3596cb); */
+  align-items: center;
+}
+
+.navItems .logo {
+  width: 50%;
+  text-align: left;
+  font-family: 'Prompt', sans-serif;
+  /* color: #1865f2; */
+  color: #fff;
+  font-size: 20pt;
+  font-weight: 400;
+}
+
+.navItems ul {
+  width: 50%;
+  text-align: right;
+}
+
+.navItems ul li {
+  text-decoration: none;
+  display: inline-block;
+  /* padding: 10px 10px 10px 10px; */
+}
+
+.navItems ul li:hover,
+.navItems ul li a:hover {
+  cursor: pointer;
+}
+
+.navItems ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 10px 10px 10px;
+}
+
+.active {
+  background-color: #7593f3;
+}
+
+.fa-bars,
+.fa-times {
+  font-size: 20pt;
+  display: none;
+}
+
+@media only screen and (max-width: 925px) {
+  .navItems {
+    width: 100%;
+  }
+
+  .logo {
+    margin-left: 5%;
+  }
+
+  .hide {
+    display: none;
+  }
+
+  .show {
+    height: auto;
+    display: block;
+    transition: all ease 0.5;
+    -webkit-transition: all ease 0.5;
+    -moz-transition: all ease 0.5;
+    -ms-transition: all ease 0.5;
+    -o-transition: all ease 0.5;
+  }
+
+  .navItems ul {
+    z-index: 5;
+    position: absolute;
+    /* height: auto; */
+    width: 100%;
+    top: 60px;
+    justify-content: center;
+    align-items: center;
+    /* background: #6668f4; */
+    /* background: #2812d1;
+    background: -webkit-linear-gradient(top right, #2812d1, #3596cb);
+    background: -moz-linear-gradient(top right, #2812d1, #3596cb);
+    background: linear-gradient(to bottom left, #2812d1, #3596cb); */
+    /* background-image: linear-gradient(-90deg, #2812d1, #3596cb);*/
+    background-image: linear-gradient(-90deg, #6668f4, #3596cb);
+    border: none;
+  }
+
+  .navItems ul li {
+    /* display: none; */
+    text-decoration: none;
+    display: block;
+    padding: 20px 0 20px 0;
+    text-align: center;
+  }
+
+  .fa-bars,
+  .fa-times {
+    display: block;
+    text-align: right;
+    width: 100%;
+    margin-right: 5%;
+  }
+}

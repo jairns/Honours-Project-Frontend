@@ -1,0 +1,15 @@
+.coverImage {
+  width: 100%;
+  height: 100vh;
+  background-image: url('../../Images/translation-4620781_1920.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.vertical {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  top: 40vh;
+}

@@ -1,0 +1,26 @@
+footer {
+  height: 60px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  background: #6668f4;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.footerItems {
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+  background-color: inherit;
+  justify-content: center;
+  display: block;
+}
+
+.footerText {
+  font-size: 10pt;
+  color: white;
+  padding-top: 5px;
+  cursor: pointer;
+}
