@@ -40,14 +40,6 @@ const cardReducer = (state, action) => {
                 cards: [action.payload, ...state.cards],
                 loading: false
             };
-        // Setting the selected card to ensure the values are accessible
-        case EDIT_CARD: 
-            return {
-                // Current state
-                ...state,
-                // Set current to the contact
-                selectedCard: action.payload
-            };
         // Clearing the cards
         case CLEAR_CARDS:
             return {
@@ -55,12 +47,20 @@ const cardReducer = (state, action) => {
                 cards: [],
                 loaded: false
             };
+        // Populating the state with the selected card
+        case EDIT_CARD: 
+            return {
+                // Current state
+                ...state,
+                // Adding the card to state
+                selectedCard: action.payload
+            };
         // Updating a card
         case UPDATE_CARD:
             return {
                 // Current state
                 ...state,
-                // Map through the contact to identify the contact which is being updated, replace it with the new value
+                // Map through the cards to identify the card which is being updated, replace it with the new value
                 cards: state.cards.map(card => 
                     card._id === action.payload._id ? 
                 action.payload : card),

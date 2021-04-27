@@ -6,21 +6,19 @@ export const GET_DECK = 'GET_DECK';
 export const ADD_DECK = 'ADD_DECK';
 // Delete a deck
 export const DELETE_DECK = 'DELETE_DECK';
-// Populate contact form with current deck
+// Populate the state with the selected deck
 export const EDIT_DECK = 'EDIT_DECK';
 // Update the deck
 export const UPDATE_DECK = 'UPDATE_DECK';
 // Remove decks from state when user logs out
 export const CLEAR_DECKS = 'CLEAR_DECKS';
-// Remove deck image
-export const REMOVE_IMAGE = 'REMOVE_IMAGE';
 // Get all cards
 export const GET_CARDS = 'GET_CARDS';
 // Add a card
 export const ADD_CARD = 'ADD_CARD';
 // Delete a card
 export const DELETE_CARD = 'DELETE_CARD';
-// Populate contact form with current card
+// Populate the state with current card
 export const EDIT_CARD = 'EDIT_CARD';
 // Update the card
 export const UPDATE_CARD = 'UPDATE_CARD';
@@ -45,7 +43,10 @@ export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAIL = 'LOGIN_FAIL';
 // Logout
 export const LOGOUT = 'LOGOUT';
+// Delete account
 export const DELETE_USER = 'DELETE_USER';
+// Clear response
 export const CLEAR_RES = 'CLEAR_RES';
+// Forgot/reset password response
 export const FORGOT_PASSWORD_RESPONSE = 'FORGOT_PASSWORD_RESPONSE';
 export const RESET_PASSWORD_RESPONSE = 'RESET_PASSWORD_RESPONSE';

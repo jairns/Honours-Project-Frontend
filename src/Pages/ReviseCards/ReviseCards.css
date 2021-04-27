@@ -43,6 +43,7 @@
   bottom: 16px;
 }
 
+/* Set buttons width to 100% */
 @media only screen and (max-width: 768px) {
   .feedback {
     display: block;

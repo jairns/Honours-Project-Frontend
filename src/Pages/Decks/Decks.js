@@ -12,11 +12,12 @@ import CardContext from '../../Context/Cards/cardContext';
 
 const Decks = (props) => {
 
+    // Context
     const authContext = useContext(AuthContext);
     const deckContext = useContext(DeckContext);
     const cardContext = useContext(CardContext);
 
-    // Extracting the contacts & the filtered state within the context
+    // Extracting the decks & the filtered state within the context
     const { decks, getDecks, editDeck } = deckContext;
     const { clearCards } = cardContext;
     
@@ -28,8 +29,9 @@ const Decks = (props) => {
         // Getting the decks associated with the user
         getDecks();
         //eslint-disable-next-line
-    }, [])
+    }, []);
 
+    // Modal reference
     const modalRef = React.useRef();
 
     // // If no decks exist
@@ -42,18 +44,24 @@ const Decks = (props) => {
             </div>
         )
     }
+
     return (
         <div className='margins'>
+            {/* Display the decks if any exist */}
             {decks && decks !== null && decks.length > 0 ? (
                 <React.Fragment>
                     <Modal ref={modalRef} title={'Deck'} text={'deck'}/>
                     <h1 className='formHeading pt-110'>Your Decks</h1>
-                    <div className='decks'>                       
+                    <div className='decks'>     
+                        {/* Map through the decks, outputing each */}
                         {decks.map(deck => (
                             <Card width={props.windowWidth < 1100 ? '100%' : '43%'} height='auto' key={deck._id}> 
+                                {/* If no file exists */}
                                 {deck.file === 'null' || !deck.file ? (
+                                    // Display placeholder text
                                     <img src={Placeholder} alt='deck' />
                                     ) : (
+                                        // Otherwise, display the user's image
                                         <img src={process.env.REACT_APP_FILE_URL + `${deck.file}`} alt='deck' />
                                     )
                                 }
@@ -71,6 +79,7 @@ const Decks = (props) => {
                                                 VIEW CARDS
                                         </Link>
                                     </p>
+                                    {/* Calling the openModal function from the modal component */}
                                     <p onClick={() => {
                                         modalRef.current.openModal();
                                         editDeck(deck);
@@ -82,10 +91,7 @@ const Decks = (props) => {
                 </React.Fragment> 
             ) : <Spinner /> }
         </div>
-    )  
+    ); 
 }
+
 export default windowSize(Decks);
-/*
-Default thumbnail src:
-https://www.pexels.com/photo/stacks-of-blank-white-visiting-cards-on-table-4466176/
-*/

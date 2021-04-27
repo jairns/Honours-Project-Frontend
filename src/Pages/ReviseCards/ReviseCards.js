@@ -10,11 +10,14 @@ import CardContext from '../../Context/Cards/cardContext';
 
 const Cards = (props) => {
 
+    // Extracting id from the query parameter
     const id = props.match.params.id;
 
+    // Initialising the context
     const authContext = useContext(AuthContext)
     const cardContext = useContext(CardContext)
 
+    // Selecting the required functions
     const { 
         loaded, 
         cards, 
@@ -35,7 +38,7 @@ const Cards = (props) => {
         // Getting a card to revise from the specified deck
         reviseCards(id)
         // eslint-disable-next-line
-    }, [])
+    }, []);
 
     // For flipping the card
     const [isFlipped, setIsFlipped] = useState(false);
@@ -47,17 +50,17 @@ const Cards = (props) => {
             status: status
         }
         // Calling function which sends the put request
-        updateStatus(card)
+        updateStatus(card);
         // Clearing the current study card within the state
         clearStudyCard();
         // Flipping the card
-        setIsFlipped(!isFlipped)
+        setIsFlipped(!isFlipped);
         // Timeout is required to ensure the cards are up to date
         setTimeout(() => {
             // Getting the new study card
             reviseCards(id);
             // Delaying by 0.05 seconds
-        }, 50)
+        }, 50);
     }
 
     // Checking whether any cards are available
@@ -69,7 +72,7 @@ const Cards = (props) => {
                 {/* If no cards exist, display the following message */}
                 <h3>No cards to revise. Please create some!</h3>
             </div>
-        )
+        );
     }
     return (
         <div className='margins'>
@@ -78,6 +81,7 @@ const Cards = (props) => {
                 <React.Fragment>
                     <h1 className='formHeading pt-110'>Revise</h1>
                     <ReactCardFlip isFlipped={isFlipped} flipDirection="vertical">
+                        {/* Front of card - question */}
                         <Card width={'100%'} height={props.windowWidth < 768 ? '500px' : '425px'}>
                             <h2>Question:</h2>
                             <p>{studyCard.question}</p>
@@ -91,6 +95,8 @@ const Cards = (props) => {
                                 />
                             </div>
                         </Card>
+
+                        {/* Back of card - answer */}
                         <Card width={'100%'} height={props.windowWidth < 768 ? '500px' : '425px'}>
                             <h2>Answer:</h2>
                             <p>{studyCard.answerText}</p> 

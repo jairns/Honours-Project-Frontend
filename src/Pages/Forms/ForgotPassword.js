@@ -7,19 +7,19 @@ import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 
 const ForgotPassword = (props) => {
+    
     // Initialise auth context
-    const authContext = useContext(AuthContext)
+    const authContext = useContext(AuthContext);
+
     // Retrieving the set regitser function from the auth context
     const { isAuthenticated, forgotPassword, clearRes, forgotPwdRes } = authContext;
 
+    // When the page loads 
     useEffect(() => {
         // If the user is authenticated, redirect to the home page
         if(isAuthenticated) {
             props.history.push('/decks');
-        }
-        
-        // eslint-disable-next-line
-        // ^^  DISCUSS THIS AS AN ERROR IN HONOURS PROJECT
+        }     
     }, [isAuthenticated, props.history]);
 
     return (
@@ -34,15 +34,18 @@ const ForgotPassword = (props) => {
                 validationSchema={
                     Yup.object().shape({
                         email: Yup.string()
+                            // Email input is required and must be a valid email
                             .email('Email is invalid')
                             .required('Email is required')
                         })
                     }
                     onSubmit={ (values) => {
-                        forgotPassword(values)
+                        // Pass the email to the forgotPassword function within auth state file
+                        forgotPassword(values);
+                        // Remove response after five seconds
                         setTimeout(() => {
                             clearRes();
-                        }, 5000)
+                        }, 5000);
                     }}>
                 {({  handleChange, values, errors, touched }) => (        
                     <Form>
@@ -52,9 +55,12 @@ const ForgotPassword = (props) => {
                             name='email'
                             onChange={handleChange}
                             values={values.email} />
+                        {/* Display error message and remove error message if valid */}
                         <p className='errorMsg red'>{errors.email && touched.email ? errors.email : null}</p>
 
                         <Button type='submit' class={'green mt-50'} value='SUBMIT' width='100%' />
+                        
+                        {/* Repsonse from the server */}
                         {forgotPwdRes && (
                             <p className={forgotPwdRes === 'The provided email address is not registered with omnilingu' ? 'errorMsg red' : 'sucMsg greenText'}>{forgotPwdRes}</p>    
                         )}
@@ -62,7 +68,7 @@ const ForgotPassword = (props) => {
                 )}
             </Formik>
         </div>
-    )
+    );
 }
 
 export default ForgotPassword;

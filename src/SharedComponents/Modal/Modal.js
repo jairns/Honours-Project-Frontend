@@ -11,11 +11,12 @@ const Modal = forwardRef((props, ref) => {
     // Modal open state
     const [isClick, setIsClicked] = useState(false);
 
+    // Required context
     const authContext = useContext(AuthContext);
     const deckContext = useContext(DeckContext);
     const cardContext = useContext(CardContext);
 
-    // Extracting the contacts & the filtered state within the context
+    // Extracting the functions from the context
     const { user, deleteUser } = authContext;
     const { current, deleteDeck } = deckContext;
     const { selectedCard, deleteCard } = cardContext;
@@ -24,19 +25,24 @@ const Modal = forwardRef((props, ref) => {
 
     React.useImperativeHandle(ref, () => {
         return {
+          // If open modal is called externally - open the modal   
           openModal: () => open(),
+          // Close the modal  
           close: () => close()
         }
-      });
+    });
 
+    // Open the modal 
     const open = () => {
         setIsClicked(true);
     }
 
+    // Close the modal
     const close = () => {
         setIsClicked(false);
     }
 
+    // Delete function
     const onDeleteHandler = e => {
         // Preventing form submission
         e.preventDefault();
@@ -45,17 +51,17 @@ const Modal = forwardRef((props, ref) => {
             // Getting deck id from currents state
             let id = current._id;
             // Passing deck id to the delete deck function
-            deleteDeck(id)
+            deleteDeck(id);
             // Closing the modal
             setIsClicked(false);
             // Card deletion
         } else if(props.title === 'Card') {
             let id = selectedCard._id;
-            deleteCard(id)
+            deleteCard(id);
             setIsClicked(false);
             // Account deletion
         } else {
-            deleteUser(user._id)
+            deleteUser(user._id);
             setIsClicked(false);
             // Redirect to login page
             history.push('/login');
@@ -64,6 +70,7 @@ const Modal = forwardRef((props, ref) => {
 
     // If isClick is true, open modal
     if(isClick){
+        // Creating a portal to the idex.html file - the single page
         return ReactDOM.createPortal(
             <div className='modal-wrapper'>
                 <div className="modal-content">
@@ -72,6 +79,7 @@ const Modal = forwardRef((props, ref) => {
                         <p>Are you sure you want to delete {props.text}?</p>
                     </div>
                     <div className="modal-footer">
+                        {/* Close the modal */}
                         <p onClick={() => setIsClicked(!isClick)}>CANCEL</p>
                         <form>
                             <button onClick={onDeleteHandler} className='modal-btn' type="submit">DELETE</button>

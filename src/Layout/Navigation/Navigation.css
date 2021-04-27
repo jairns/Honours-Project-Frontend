@@ -1,3 +1,4 @@
+/* Logo font */
 @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@500&display=swap');
 
 nav {
@@ -5,11 +6,6 @@ nav {
   position: fixed;
   width: 100%;
   z-index: 5;
-  /* background: #6668f4; */
-  /* background: #2812d1;
-  background: -webkit-linear-gradient(top right, #2812d1, #3596cb);
-  background: -moz-linear-gradient(top right, #2812d1, #3596cb);
-  background: linear-gradient(to bottom left, #2812d1, #3596cb); */
   background-image: linear-gradient(-90deg, #6668f4, #3596cb);
   display: flex;
   color: #fff;
@@ -19,10 +15,6 @@ nav {
   display: flex;
   width: 80%;
   margin: 0 auto;
-  /* background: #2812d1;
-  background: -webkit-linear-gradient(top right, #2812d1, #3596cb);
-  background: -moz-linear-gradient(top right, #2812d1, #3596cb);
-  background: linear-gradient(to bottom left, #2812d1, #3596cb); */
   align-items: center;
 }
 
@@ -30,7 +22,6 @@ nav {
   width: 50%;
   text-align: left;
   font-family: 'Prompt', sans-serif;
-  /* color: #1865f2; */
   color: #fff;
   font-size: 20pt;
   font-weight: 400;
@@ -44,7 +35,6 @@ nav {
 .navItems ul li {
   text-decoration: none;
   display: inline-block;
-  /* padding: 10px 10px 10px 10px; */
 }
 
 .navItems ul li:hover,
@@ -68,6 +58,7 @@ nav {
   display: none;
 }
 
+/* Responsive menu */
 @media only screen and (max-width: 925px) {
   .navItems {
     width: 100%;
@@ -94,23 +85,15 @@ nav {
   .navItems ul {
     z-index: 5;
     position: absolute;
-    /* height: auto; */
     width: 100%;
     top: 60px;
     justify-content: center;
     align-items: center;
-    /* background: #6668f4; */
-    /* background: #2812d1;
-    background: -webkit-linear-gradient(top right, #2812d1, #3596cb);
-    background: -moz-linear-gradient(top right, #2812d1, #3596cb);
-    background: linear-gradient(to bottom left, #2812d1, #3596cb); */
-    /* background-image: linear-gradient(-90deg, #2812d1, #3596cb);*/
     background-image: linear-gradient(-90deg, #6668f4, #3596cb);
     border: none;
   }
 
   .navItems ul li {
-    /* display: none; */
     text-decoration: none;
     display: block;
     padding: 20px 0 20px 0;

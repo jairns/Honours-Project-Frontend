@@ -36,13 +36,13 @@ const CardState = props => {
             });
         } catch (err) {
             // Log error message if exists
-            console.log(err.response)
+            console.log(err.response);
         }
     }
 
     // Clearing the study card state
     const clearStudyCard = () => {
-        dispatch({ type: CLEAR_STUDYCARD })
+        dispatch({ type: CLEAR_STUDYCARD });
     }
 
     // Getting a study card
@@ -54,7 +54,7 @@ const CardState = props => {
                 payload: res.data 
             });
         } catch (err) {
-            console.log(err.response)
+            console.log(err.response);
         }
     }
 
@@ -67,10 +67,10 @@ const CardState = props => {
                 payload: res.data 
             });
         } catch (err) {
-            console.log(err.response)
+            console.log(err.response);
         }
     }
-
+    
     // Edit Card
     const editCard = card => {
         dispatch({ type: EDIT_CARD, payload: card });
@@ -85,7 +85,7 @@ const CardState = props => {
                 payload: res.data
             });
         } catch (err) {
-            console.log(err.response)
+            console.log(err.response);
         }
     }
 
@@ -94,7 +94,7 @@ const CardState = props => {
         try {
             await axios.put(process.env.REACT_APP_API_URL + `cards/${cardData._id}`, cardData);
         } catch (err) {
-            console.log(err.response)
+            console.log(err.response);
         }
     }
 
@@ -108,7 +108,7 @@ const CardState = props => {
                 payload: id
             });
         } catch (err) {
-            console.log(err.response.data.msg)
+            console.log(err.response.data.msg);
         }
     }
 
@@ -120,16 +120,16 @@ const CardState = props => {
                 type: UPDATE_CARD, 
                 payload: res.data
             });
-            } catch (err) {
-                console.log(err.response)
-            }
+        } catch (err) {
+            console.log(err.response);
         }
+    }
 
     // Clearing the cards state
     const clearCards = () => {
-        dispatch({ type: CLEAR_CARDS })
+        dispatch({ type: CLEAR_CARDS });
     }
-
+    
     return (
         // Exports - applied to context, providing access to the state and functions throughout the entire application
         <CardContext.Provider value={{

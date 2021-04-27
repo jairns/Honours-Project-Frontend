@@ -1,7 +1,8 @@
 import React from 'react';
 
 const Gdpr = () => {
-    return(
+    return (
+        // GDPR policy
         <div className='margins text-left'>
             <h1 className='formHeading pt-110'>GDPR Privacy Policy for Omnilingu</h1>
             <p className='text-left'>At Omnilingu, accessible at Omnilingu.com, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by Omnilingu and how we use it.</p>
@@ -35,7 +36,7 @@ const Gdpr = () => {
             <h3 className='pb-10'>Consent</h3>
             <p className='text-left'>By using the site, you hereby consent to our Privacy Policy and agree to its Terms and Conditions</p>
         </div>
-    )
+    );
 }
 
 export default Gdpr;

@@ -68,14 +68,14 @@ const AuthState = props => {
                 type: REGISTER_SUCCESS,
                 // Payload will be equal to token
                 payload: res.data
-             })
+             });
              loadUser();
         } catch (err) {
             dispatch({ 
                 type: REGISTER_FAIL,
                 // Setting payload to error message
                 payload: err.response.data.msg
-             })
+             });
         }
     }
 
@@ -92,22 +92,22 @@ const AuthState = props => {
                 type: LOGIN_SUCCESS,
                 // Payload will be equal to token
                 payload: res.data
-             })
+             });
              loadUser();
         } catch (err) {
             dispatch({ 
                 type: LOGIN_FAIL,
                 // Setting payload to error message
                 payload: err.response.data.msg
-             })
+             });
         }
     }
 
     // Logout 
     const logout = () => {
         dispatch({ type: LOGOUT });
-    
     }
+
     // Forgot Password
     const forgotPassword = async email => {
         const config = {
@@ -144,15 +144,16 @@ const AuthState = props => {
                 type: RESET_PASSWORD_RESPONSE,
                 // Setting payload to error message
                 payload: res.data.msg
-             })
+             });
         } catch (err) {
             dispatch({ 
                 type: RESET_PASSWORD_RESPONSE,
                 // Setting payload to error message
                 payload: err.response.data.msg
-             })
+             });
         }
     }
+    
     // Delete User
     const deleteUser = async id => {
         try {
@@ -163,13 +164,13 @@ const AuthState = props => {
                 payload: id
             });
         } catch (err) {
-            console.log(err.response.data.msg)
+            console.log(err.response.data.msg);
         }
     }
 
     // Clear repsonse errors
     const clearRes = () => {
-        dispatch({ type: CLEAR_RES })
+        dispatch({ type: CLEAR_RES });
     }
 
     // Passing state and functions to context

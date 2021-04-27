@@ -14,13 +14,13 @@ const FilePreview = (props) => {
                 </audio>
             )}
 
+            {/* Remove the file */}
             <div className='removeContainer' onClick={props.onClick}>
                 <i className='fa fa-trash red binIcon'></i>
                 <p className='red removeText'>Remove {props.label}</p>
             </div>
-
         </form>
-    )
+    );
 } 
 
 export default FilePreview;

@@ -6,10 +6,12 @@ section {
   align-items: center;
 }
 
+/* Second section is white */
 section:nth-of-type(2) {
   background-color: #fff;
 }
 
+/* Landing page svgs */
 .icons {
   padding-top: 30vh;
   width: 100px;

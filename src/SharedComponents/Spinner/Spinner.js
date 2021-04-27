@@ -7,7 +7,7 @@ const Spinner = () => {
         <div className='spinnerContainer'>
             <BeatLoader loading />
         </div>
-    )
+    );
 }
 
 export default Spinner;

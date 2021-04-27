@@ -58,6 +58,7 @@ const authReducer = (state, action) => {
         case CLEAR_RES:
            return {
                ...state,
+                // Clear the error
                error: null,
                forgotPwdRes: null,
                loaded: false
@@ -65,11 +66,13 @@ const authReducer = (state, action) => {
         case FORGOT_PASSWORD_RESPONSE: 
            return {
                ...state,
+                // Forgot password response
                forgotPwdRes: action.payload
            };
         case RESET_PASSWORD_RESPONSE:
            return {
                ...state,
+                // Reset password response   
                resetPwdRes: action.payload
            }
         default: 

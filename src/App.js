@@ -33,9 +33,11 @@ if(localStorage.token) {
   setAuthToken(localStorage.token);
 }
   return (
+    // enabling the context
     <AuthState>
       <DeckState>
         <CardState>
+          {/* Page routing */}
           <Router>
             <div className="App">
               <Navigation />

@@ -16,24 +16,23 @@ const FooterItems = () => {
 
     // Importing auth context
     const authContext = useContext(AuthContext);
+
     // Extracting isAuthentication from authContext
     const { isAuthenticated } = authContext;
 
     return (
         <footer>
-            <Modal ref={modalRef} title={'Account'} text={'account'}/>
+            <Modal ref={modalRef} title={'Account'} text={'account'} />
             <div className='footerItems'>
                 {/*If the user is authenticated, display delete account */}
-                {isAuthenticated ? (
+                {isAuthenticated && (
                     <p onClick={openModal} className='footerText'>Delete Account</p>
-                ) : (
-                    null
-                )
-                }
+                )}
+                {/* GDPR page */}
                 <Link to='/gdpr'><p className='footerText'>Data Protection Policy</p></Link>
             </div>
         </footer>
-    )
+    );
 }
 
 export default FooterItems;

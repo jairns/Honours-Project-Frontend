@@ -11,25 +11,27 @@ import DeckContext from '../../Context/Decks/deckContext';
 
 const EditDeck = (props) => {
 
+    // Extract deck id from query parameter
     let id = props.match.params.id;
 
-    const authContext = useContext(AuthContext)
-    const deckContext = useContext(DeckContext)
+    // Get required context
+    const authContext = useContext(AuthContext);
+    const deckContext = useContext(DeckContext);
 
     // Extracting functions from the context
     const { updateDeck, deleteThumbnail } = deckContext;
 
+    // Initial deck state
     const [deck, setDeck] = useState({
         title: '',
         description: '',
         file: ''
     });
-
     const [loaded, setLoaded] = useState(false);
-
-    const [file, setFile] = useState('')
+    // input type value
+    const [file, setFile] = useState('');
     const [type, setType] = useState('text');
-
+    // Determine if file prev component is displayed
     const [filePrev, setFilePrev] = useState(false); 
 
     // Validators
@@ -41,69 +43,76 @@ const EditDeck = (props) => {
     useEffect(() => {
         // Call the load user function
         authContext.loadUser();
-
+        // Get the deck
         const getDeck = async () => {
             try {
                 const res = await axios.get(process.env.REACT_APP_API_URL + `decks/${id}`);
+                // Update the deck state
                 setDeck({
                     title: res.data[0].title,
                     description: res.data[0].description,
                     file: res.data[0].file
-                })
+                });
+                // Page can load 
                 setLoaded(true);
             } catch (err) {
-                console.log(err.response)
+                console.log(err.response);
             }
         }
-
         getDeck();
-        
         //eslint-disable-next-line
-    }, [])
+    }, []);
 
-    console.log(deck);
-
+    // Update the value of a deck property
     const inputHandler = e => setDeck({ ...deck, [e.target.name]: e.target.value });
     
     const deleteFileHandler = () => {
-        console.log('removed');
-        deleteThumbnail(id)
+        // Pass the decks id to the delete thumbnail function
+        deleteThumbnail(id);
+        // Hide the file preview component
         setFilePrev(true);
     }
 
     const handleSubmit = e => {
+        // Prevent the form submitting 
         e.preventDefault();
-
+        // Check if the form is valid
         if(titleValid && deck.title.trim() !== '' && desValid && deck.description.trim() !== '' && fileValid) {
+            // Define the data as mulitpart/formdata
             let deckData = new FormData();
-            deckData.append('title', deck.title)
-            deckData.append('description', deck.description)
-            deckData.append('file', file)
-
+            deckData.append('title', deck.title);
+            deckData.append('description', deck.description);
+            deckData.append('file', file);
+            // Pass the new data and id to the update deck function of the deckState
             updateDeck(id, deckData);
+            // Redirect
             props.history.push('/decks');
         }
     }
 
     return (
         <div className='margins'>
+            {/* If the data has loaded - display the form */}
             {loaded ? ( 
                 <form onSubmit={handleSubmit}>
                     <h1 className='formHeading pt-110'>Edit Deck</h1>
+
                     <Input 
                         type='text' 
                         placeholder='ENTER DECK TITLE'                     
                         name='title' 
                         value={deck.title}
                         onChange={e => {
+                            // Update the values state
                             inputHandler(e);
+                            // Check if the value is not empty
                             if(e.target.value !== '') {
                                 setTitleValid(true);
                             } else {
                                 setTitleValid(false);
                             }
-                            }} />
-
+                        }} />     
+                    {/* Error message */}
                     {!titleValid && 
                         <p className='errorMsg red'>Title is required</p>
                     }
@@ -120,8 +129,7 @@ const EditDeck = (props) => {
                             } else {
                                 setDesValid(false);
                             }
-                            }} />
-                    
+                        }} />
                     {!desValid && 
                         <p className='errorMsg red'>Description is required</p>
                     }
@@ -141,12 +149,11 @@ const EditDeck = (props) => {
                         focus={() => setType('file')} 
                         onChange={e => {setFile(e.target.files[0])
                             if((/\.(jpe?g|png)$/i).test(e.target.value)) {
-                                setFileValid(true)
+                                setFileValid(true);
                             } else {
-                                setFileValid(false)
+                                setFileValid(false);
                             }
                         }} />
-
                         {!fileValid && 
                             <p className='errorMsg red'>File is invalid. Please upload jpeg, jpg or png</p>
                         }
@@ -158,7 +165,7 @@ const EditDeck = (props) => {
                 <Spinner />
             )}
         </div>
-    )
+    );
 }
 
 export default EditDeck;

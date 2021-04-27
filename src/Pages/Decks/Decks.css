@@ -29,6 +29,7 @@ p {
   margin: 30px 0 30px 0;
 }
 
+/* For firefox */
 @media only screen and (min-width: 1076px) {
   @-moz-document url-prefix() {
       .ffStyles {
@@ -37,6 +38,7 @@ p {
   }
 }
 
+/* Medium screens and below */
 @media only screen and (max-width: 1100px) {
   .decks {
     width: 100%;

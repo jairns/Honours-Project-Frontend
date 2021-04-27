@@ -3,11 +3,12 @@ import NavItems from './NavItems';
 import './Navigation.css';
 
 const Navigation = () => {
-    return(
+    return (
         <nav>
+            {/* Importing nav items */}
             <NavItems />
         </nav>
-    )
+    );
 }
 
 export default Navigation;

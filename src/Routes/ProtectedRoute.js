@@ -9,9 +9,12 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
     <Route
       {...rest}
       render={props =>
+        // If the user is not authenticated
         !isAuthenticated && !loaded ? (
+          // Redirect to the login page
           <Redirect to='/login' />
         ) : (
+          // Otherwise, display the requested page
           <Component {...props} />
         )
       }

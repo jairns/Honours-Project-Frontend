@@ -9,9 +9,11 @@ const ToAuthRoute = ({ component: Component, ...rest }) => {
     <Route
       {...rest}
       render={props =>
+        // If the user attempts to access login, register, etc when authenticated
         !isAuthenticated && !loaded ? (
             <Component {...props} />
         ) : (
+          // Redirect to the decks page 
           <Redirect to='/decks' />
         )
       }

@@ -5,9 +5,10 @@ import './Footer.css';
 const Footer = () => {
     return (
         <footer>
+            {/* Footer content */}
             <FooterItems />
         </footer>
-    )
+    );
 }
 
 export default Footer;

@@ -35,7 +35,7 @@ const DeckState = props => {
                 payload: res.data 
             });
         } catch (err) {
-            console.log(err.response)
+            console.log(err.response);
         }
     }
 
@@ -46,11 +46,11 @@ const DeckState = props => {
             // Dispatching the function and the payload to the reducer
             dispatch({ 
                 type: GET_DECK, 
-                // Response should be equal to all the users decksw, which are sent in the payload
+                // Response should be equal to all the users decks, which are sent in the payload
                 payload: res.data 
             });
         } catch (err) {
-            console.log(err.response)
+            console.log(err.response);
         }
     }
 
@@ -64,28 +64,29 @@ const DeckState = props => {
                 payload: res.data 
             });
         } catch (err) {
-            console.log(err.response)
+            console.log(err.response);
         }
     }
+
     // Edit deck
     const editDeck = deck => {
         // Dispatching the function and the payload to the reducer
         dispatch({ type: EDIT_DECK, payload: deck });
     }
+
     // Update deck
     const updateDeck = async (id, deckData) => {
         try {
             const res = await axios.put(process.env.REACT_APP_API_URL + `decks/${id}`, deckData);
-            // Dispatching the function and the payload to the reducer
             dispatch({ 
                 type: UPDATE_DECK, 
                 payload: res.data
             });
-            // console.log(id, deckData)
         } catch (err) {
-            console.log(err.response)
+            console.log(err.response);
         }
     }
+
     // Delete deck
     const deleteDeck = async id => {
         try {
@@ -95,10 +96,11 @@ const DeckState = props => {
                 type: DELETE_DECK, 
                 payload: id
             });
-            } catch (err) {
-                console.log(err.response)
-            }
+        } catch (err) {
+            console.log(err.response);
+        }
     }
+    
     // Delete thumbnail
     const deleteThumbnail = async id => {
         try {
@@ -108,7 +110,7 @@ const DeckState = props => {
                 payload: res.data
             });
         } catch (err) {
-            console.log(err.response)
+            console.log(err.response);
         }
     }
 

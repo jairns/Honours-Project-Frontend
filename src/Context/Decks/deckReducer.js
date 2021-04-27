@@ -32,12 +32,12 @@ const deckReducer = (state, action) => {
                 decks: [action.payload, ...state.decks],
                 loading: false
             }
-        // Setting the selected deck to ensure the values are accessible
+        // Populating the state with the selected deck
         case EDIT_DECK: 
             return {
                 // Current state
                 ...state,
-                // Set current to the contact
+                // Set current to the deck
                 current: action.payload
             }
         // Updating a deck
@@ -45,7 +45,7 @@ const deckReducer = (state, action) => {
             return {
                 // Current state
                 ...state,
-                // Map through the contact to identify the contact which is being updated, replace it with the new value
+                // Map through the decks to identify the deck which is being updated, replace it with the new value
                 decks: state.decks.map(deck => 
                     deck._id === action.payload._id ? 
                 action.payload : deck),
@@ -56,7 +56,7 @@ const deckReducer = (state, action) => {
             return {
                 // Current state
                 ...state,
-                // Retrieving all the contacts except the one with the ID specified withing the payload
+                // Retrieving all the decks except the one with the ID specified withing the payload
                 decks: state.decks.filter(deck => deck._id !== action.payload),
                 loading: false
             }

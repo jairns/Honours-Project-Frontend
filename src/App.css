@@ -5,6 +5,7 @@
   padding: 0;
 }
 
+/* Spacing and alignment */
 .margins {
   width: 50%;
   padding-bottom: 30px;
@@ -44,6 +45,7 @@
   padding-left: 5px;
 }
 
+/* Text styling */
 .formHeading {
   width: 100%;
   font-weight: 400;
@@ -110,6 +112,7 @@ a {
   text-align: left;
 }
 
+/* Colours */
 .red {
   color: #f32013;
 }
@@ -122,6 +125,7 @@ a {
   color: #4caf50;
 }
 
+/* For medium and small screens */
 @media only screen and (max-width: 768px) {
   .margins {
     margin: 0 auto;
